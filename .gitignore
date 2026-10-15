@@ -1,0 +1,32 @@
+# ---- 运行时生成的数据(首次启动自动创建, 不要提交) ----
+rules.json
+mock_cert.pem
+mock_key.pem
+
+# ---- 放在本目录做挡板返回用的业务文件, 一律不提交 ----
+/*.png
+/*.jpg
+/*.jpeg
+/*.gif
+/*.pdf
+/*.zip
+/*.xlsx
+/*.docx
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---- PyInstaller 打包产物(exe 走 Release 发布, 不入库) ----
+build/
+dist/
+*.spec
+
+# ---- IDE / 系统 ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
