@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ex001",
+    "enabled": true,
+    "name": "示例:GET 接口返回 JSON",
+    "method": "GET",
+    "path": "/api/demo",
+    "req_headers": {},
+    "req_query": {},
+    "req_body_contains": "",
+    "status": 200,
+    "resp_headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "resp_body": "{\"code\":0,\"msg\":\"ok\",\"data\":{\"hello\":\"mock\"}}",
+    "resp_file": "",
+    "delay_ms": 0
+  },
+  {
+    "id": "ex002",
+    "enabled": true,
+    "name": "示例:按查询参数区分返回内容",
+    "method": "GET",
+    "path": "/api/download",
+    "req_headers": {},
+    "req_query": { "fileId": "abc123" },
+    "req_body_contains": "",
+    "status": 200,
+    "resp_headers": { "Content-Type": "application/octet-stream" },
+    "resp_body": "",
+    "resp_file": "abc123.png",
+    "delay_ms": 0
+  },
+  {
+    "id": "ex003",
+    "enabled": true,
+    "name": "示例:校验请求头, 模拟鉴权失败",
+    "method": "POST",
+    "path": "/api/order/create",
+    "req_headers": { "X-Token": "wrong-token" },
+    "req_query": {},
+    "req_body_contains": "",
+    "status": 401,
+    "resp_headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "resp_body": "{\"code\":401,\"msg\":\"token 无效\"}",
+    "resp_file": "",
+    "delay_ms": 0
+  },
+  {
+    "id": "ex004",
+    "enabled": true,
+    "name": "示例:按请求体关键字区分, 模拟超时(延迟 3 秒)",
+    "method": "POST",
+    "path": "/api/*",
+    "req_headers": {},
+    "req_query": {},
+    "req_body_contains": "timeoutCase",
+    "status": 200,
+    "resp_headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "resp_body": "{\"code\":0,\"msg\":\"slow response\"}",
+    "resp_file": "",
+    "delay_ms": 3000
+  }
+]
